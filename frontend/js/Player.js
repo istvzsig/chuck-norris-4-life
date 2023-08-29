@@ -64,10 +64,10 @@ class Player {
   }
   move() {
     if(this.controller.currentKey['d'] && this.controller.dir > 0) {
-      this.pos.x = this.pos.x + this.speed * this.controller.dir;
+      this.pos.x = Math.round(this.pos.x + this.speed * this.controller.dir);
     }
     if(this.controller.currentKey['a'] && this.controller.dir < 0) {
-      this.pos.x = this.pos.x + this.speed * this.controller.dir;
+      this.pos.x = Math.round(this.pos.x + this.speed * this.controller.dir);
     }
   }
 }
