@@ -15,13 +15,13 @@ class Game {
       this.gameCanvas.width,
       this.gameCanvas.height
     );
-    // requestAnimationFrame(this.clearBackground.bind(this));
+    requestAnimationFrame(this.clearBackground.bind(this));
   }
   start() {
     loadImage('./frontend/img/cn.png')
     .then(spriteImage => {
       const player = new Player("Silent Bob", this.gameCanvasContext, spriteImage);
-      // this.clearBackground();
+      this.clearBackground();
       [player].forEach(entity => entity.update());
     });
   }
