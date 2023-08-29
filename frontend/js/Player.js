@@ -1,6 +1,6 @@
 import Timer from './Timer.js';
 import Nameplate from './Nameplate.js';
-import Controller from './Controller.js';
+import Controller from './controller/Controller.js';
 
 class Player {
   constructor(name, context, image) {
