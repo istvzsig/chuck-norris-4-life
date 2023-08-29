@@ -47,9 +47,9 @@ class Player {
   }
   draw() {
     const buffer = this.tiles[this.controller.dir < 0 ? 1 : 0]
-    buffer
-      .getContext('2d', { aplha: true })
-      .drawImage(
+    const bufferContext = buffer.getContext('2d', { aplha: false });
+    this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
+    bufferContext.drawImage(
         this.image,
         0, 0,
         this.size.w, this.size.h,
@@ -60,6 +60,11 @@ class Player {
   }
   drawName() {
     this.nameplate.draw();
+  }
+  clearBackground() {
+    const canvas = this.context.canvas;
+    canvas.clearRect(0, 0, canvas.width, canvas.height);
+    requestAnimationFrame(this.clearBackground.bind(this));
   }
   move() {
     if(this.controller.currentKey['d'] && this.controller.dir > 0) {
