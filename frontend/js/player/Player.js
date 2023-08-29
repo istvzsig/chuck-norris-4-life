@@ -38,7 +38,6 @@ class Player {
       const bufferContext = buffer.getContext('2d');
       buffer.width = this.size.w;
       buffer.height = this.size.h;
-      this.pos = {x: 0, y: 0} // put in corner
       if(flip) {
         bufferContext.scale(-1, 1);
         bufferContext.translate(-this.size.w, 0);
