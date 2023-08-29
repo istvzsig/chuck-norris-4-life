@@ -8,5 +8,4 @@ function loadImage(url) {
   });
 }
 
-
 export { loadImage };
