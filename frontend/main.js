@@ -1,4 +1,4 @@
-import Game from './frontend/js/Game.js';
+import Game from './js/Game.js';
 
 const game = new Game();
 game.start()
