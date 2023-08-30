@@ -9,7 +9,7 @@ class Game {
     this.gameCanvasContext = this.gameCanvas.getContext('2d');
   }
   start() {
-    loadImage('./frontend/img/cn.png')
+    loadImage('./img/cn.png')
     .then(spriteImage => {
       const player = new Player("Silent Bob", this.gameCanvasContext, spriteImage);
       [player].forEach(entity => entity.update());
