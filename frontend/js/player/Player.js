@@ -76,7 +76,6 @@ class Player {
       0, 0,
       this.size.w, this.size.h
       );
-      this.move();
       this.context.drawImage(buffer, this.pos.x, this.pos.y);
       this.control();
   }
