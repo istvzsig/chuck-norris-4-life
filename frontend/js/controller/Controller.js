@@ -1,31 +1,25 @@
-const EVENT_KEY_DOWN = 'keydown';
-const EVENT_KEY_UP = 'keyup';
 const KEY_A = 'a';
 const KEY_D = 'd';
-const KEY_W = 'w';
-const KEY_S = 's';
 
 class Controller {
-  constructor(entity) {
+  constructor(entity, keyboardEvents = []) {
+    this.keyboardEvents = keyboardEvents;
     this.entity = entity;
     this.currentKey = {};
     this.dir = 0;
-    this.handleKeyboardEvents([EVENT_KEY_DOWN, EVENT_KEY_UP]);
   }
-  handleKeyboardEvents(keyboardEvents) {
-    keyboardEvents.forEach(eventName => {
+  handleKeyboardEvents() {
+    this.keyboardEvents.forEach(eventName => {
       window.addEventListener(eventName, event => {
         this.currentEventName = eventName;
-        if(eventName == EVENT_KEY_DOWN) {
+        if(eventName == 'keydown') {
           switch(event.key) {
-            case KEY_D:
-            // case KEY_S:
+            case KEY_D: // right
               this.toggleProp('dir', 1, 'E'); break;
-            case KEY_A:
-            // case KEY_W:
+            case KEY_A: // left
               this.toggleProp('dir', -1, 'W'); break;
           }
-          return this.currentKey[event.key] = true;
+          return this.currentKey[event.key] = 'pressed';
         }
         return this.currentKey[event.key] = false;
       });
